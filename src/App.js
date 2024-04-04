@@ -43,7 +43,7 @@ class App extends Component {
               "done_items_count": doneItemsCount
           });
       } else {
-          axios.get("http://127.0.0.1:8000/v1/item/get", {headers: {"token": localStorage.getItem("user-token")}})
+          axios.get(`${window.location.href}v1/item/get`, {headers: {"token": localStorage.getItem("user-token")}})
               .then(response => {
                   let pending_items = response.data["pending_items"];
                   let done_items = response.data["done_items"];

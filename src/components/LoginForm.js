@@ -10,14 +10,14 @@ class LoginForm extends Component {
 
     submitLogin = (e) => {
         e.preventDefault();
-        axios.post("http://localhost:8000/v1/auth/login",
+        axios.post(`${window.location.href}v1/auth/login`,
             {
                 "username": this.state.username,
                 "password": this.state.password
             },
             {headers: {"Access-Control-Allow-Origin": "*"}}
         ).then(response => {
-            this.props.handleLogin(JSON.parse(response.data)["token"]);
+            this.props.handleLogin(response.data["token"]);
         }).catch(error => {
            alert(error);
         }).finally(() => {

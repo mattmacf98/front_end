@@ -26,7 +26,7 @@ class ToDoItem extends Component {
     }
 
     sendRequest() {
-        axios.post("http://127.0.0.1:8000/v1/item/" + this.state.button,
+        axios.post(`${window.location.href}v1/item/` + this.state.button,
             {
                 "title": this.state.title,
                 "status": this.inverseStatus(this.state.status)
